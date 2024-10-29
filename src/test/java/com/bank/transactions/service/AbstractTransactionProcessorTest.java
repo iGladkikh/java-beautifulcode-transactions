@@ -2,6 +2,8 @@ package com.bank.transactions.service;
 
 import com.bank.transactions.model.Transaction;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -15,7 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
+@SpringBootTest
+@ActiveProfiles("test")
 abstract class AbstractTransactionProcessorTest {
     private static final Random random = new Random();
     private final TransactionProcessor service;

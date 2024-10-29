@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,7 @@ public class TransactionMonitoringAspect {
         this.defaultAuditableAmount = amount;
     }
 
-    @org.aspectj.lang.annotation.Pointcut("@annotation(com.bank.transactions.annotation.AmountAuditable) && args(transaction))")
+    @Pointcut("@annotation(com.bank.transactions.annotation.AmountAuditable) && args(transaction))")
     public void amountAuditableMethods(Transaction transaction) {
     }
 
